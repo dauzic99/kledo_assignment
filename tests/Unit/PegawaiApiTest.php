@@ -11,7 +11,10 @@ class PegawaiApiTest extends TestCase
 
     public function test_pegawai_get()
     {
-        $this->json('get', 'api/pegawai')
+        $request = [
+            'page' => 1,
+        ];
+        $this->json('get', 'api/pegawai', $request)
             ->assertStatus(Response::HTTP_OK)
             ->assertJsonStructure(
                 [
