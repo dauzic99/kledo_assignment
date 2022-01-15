@@ -25,3 +25,4 @@ Route::post('pegawai', [App\Http\Controllers\PegawaiController::class, 'store'])
 Route::get('kasbon', [App\Http\Controllers\KasbonController::class, 'index']);
 Route::post('kasbon', [App\Http\Controllers\KasbonController::class, 'store']);
 Route::patch('kasbon/setujui', [App\Http\Controllers\KasbonController::class, 'setujui']);
+Route::post('kasbon/setujui-masal', [App\Http\Controllers\KasbonController::class, 'setujui_masal']);

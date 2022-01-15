@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Http\Resources\KasbonResource;
+use App\Http\Resources\KasbonSetujuiMasalResource;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -39,6 +41,18 @@ class Kasbon extends Model
         $data->tanggal_disetujui = Carbon::now();
         $data->update();
         return $data;
+    }
+
+    public function getAllTotalKasbon($params)
+    {
+        $array_response = array();
+
+        foreach ($params as $key => $value) {
+            $kasbon = $this->findOrFail($value);
+            $response = new KasbonSetujuiMasalResource($kasbon);
+            array_push($array_response, $response);
+        }
+        return $array_response;
     }
 
     public function pegawai()
