@@ -23,7 +23,7 @@ class KasbonResource extends JsonResource
         return [
             'tanggal_diajukan' => Carbon::parse($this->tanggal_diajukan)->format('d/m/Y'),
             'tanggal_disetujui' => $tanggal_disetujui,
-            'pegawai_id' => $this->pegawai,
+            'pegawai' => $this->pegawai,
             'total_kasbon' => number_format($this->total_kasbon, 0, ',', '.'),
         ];
     }
